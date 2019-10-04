@@ -8,7 +8,7 @@ class Stage {
   colisionDetection(xPos, yPos) {
     for (const entity of this.entArr) {
       if (entity.x === xPos && entity.y === yPos) {
-        return entity;
+        return entity.type;
       }
     }
     return null;

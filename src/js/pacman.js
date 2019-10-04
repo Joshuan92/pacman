@@ -35,71 +35,28 @@ class Pacman{
         const pacboy = document.querySelector('.pacboy-active-light');
 
         document.addEventListener('keydown', (event) =>{
-            
+
             if(event.key === 'ArrowRight'){
                 this.facing = "right";
                 this.update();
-                // this.tilePositionX += 1;
-                this.changePosition();
-                // if (this.stage.withinBorders(this.tilePositionX, this.tilePositionY)){
-
-                //     this.changePosition();  
-                //     }
             }
             
             if(event.key === 'ArrowLeft'){
-                // this.tilePositionX -= 1;
                 this.facing = "left";
                 this.update();
-                // this.changePosition();
             }
 
             if(event.key === 'ArrowUp'){
-                // this.tilePositionY -= 1;
                 this.facing = "up";
                 this.update();
-                // this.changePosition();
             }
 
             if(event.key === 'ArrowDown'){
-                // this.tilePositionY += 1;
                 this.facing = "down";
                 this.update();
-                // this.changePosition();
             }
 
-            switch(this.facing) {
-                case "right":
-                    this.newPositionX = this.tilePositionX + 1;
-                    if (this.stage.withinBorders(this.newPositionX, this.tilePositionY)) {
-                        this.tilePositionX += 1
-                        this.changePosition();
-                    }
-                    break;
-                case "left":
-                    this.newPositionX = this.tilePositionX - 1;
-                    if (this.stage.withinBorders(this.newPositionX, this.tilePositionY)) {
-                        this.tilePositionX -= 1
-                        this.changePosition();
-                    }
-                    break;
-                case "up":
-                    this.newPositionY = this.tilePositionY - 1;
-                    if (this.stage.withinBorders(this.tilePositionX, this.newPositionY)) {
-                        this.tilePositionY -= 1
-                        this.changePosition();
-                    }
-                    break;
-                case "down":
-                    this.newPositionY = this.tilePositionY + 1;
-                    if (this.stage.withinBorders(this.tilePositionX, this.newPositionY)) {
-                        this.tilePositionY += 1
-                        this.changePosition();
-                    }
-                    break;
-                default:
-                    console.log("error");
-            }
+            
         });
     }
 
@@ -130,6 +87,42 @@ class Pacman{
     update() {
         this.changeFace();
         this.alternateMouth();
+        this.checkBorder();
+    }
+
+    checkBorder() {
+        switch(this.facing) {
+            case "right":
+                this.newPositionX = this.tilePositionX + 1;
+                if (this.stage.withinBorders(this.newPositionX, this.tilePositionY) && this.stage.colisionDetection(this.newPositionX, this.tilePositionY) !== "wall") {
+                    this.tilePositionX += 1
+                    this.changePosition();
+                }
+                break;
+            case "left":
+                this.newPositionX = this.tilePositionX - 1;
+                if (this.stage.withinBorders(this.newPositionX, this.tilePositionY) && this.stage.colisionDetection(this.newPositionX, this.tilePositionY) !== "wall") {
+                    this.tilePositionX -= 1
+                    this.changePosition();
+                }
+                break;
+            case "up":
+                this.newPositionY = this.tilePositionY - 1;
+                if (this.stage.withinBorders(this.tilePositionX, this.newPositionY) && this.stage.colisionDetection(this.tilePositionX, this.newPositionY) !== "wall") {
+                    this.tilePositionY -= 1
+                    this.changePosition();
+                }
+                break;
+            case "down":
+                this.newPositionY = this.tilePositionY + 1;
+                if (this.stage.withinBorders(this.tilePositionX, this.newPositionY) && this.stage.colisionDetection(this.tilePositionX, this.newPositionY) !== "wall") {
+                    this.tilePositionY += 1
+                    this.changePosition();
+                }
+                break;
+            default:
+                console.log("error");
+        }
     }
 
 }

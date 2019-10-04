@@ -10,13 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const pacman1 = new Pacman(arena1);
   pacman1.mount(arena1.arena);
 
-  const wall1 = new Entity('apple', 6, 4, arena1);
+  const wall1 = new Entity('wall', 6, 4, arena1);
   wall1.mount(arena1.arena);
   
 
-  const bomb1 = new Entity('bomb', 3, 4, arena1);
-  bomb1.mount(arena1.arena);
-  console.log(arena1.colisionDetection(3, 4));
+  const wall2 = new Entity('wall', 3, 4, arena1);
+  wall2.mount(arena1.arena);
+
+  const wall3 = new Entity('wall', 3, 1, arena1);
+  wall3.mount(arena1.arena);
 
 
   // const pacboy = document.querySelector('.pacboy-active-light');
