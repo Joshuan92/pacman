@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const wall3 = new Entity('wall', 3, 1, arena1);
   wall3.mount(arena1.arena);
 
+  wall1.unmount();
+
 
   // const pacboy = document.querySelector('.pacboy-active-light');
 

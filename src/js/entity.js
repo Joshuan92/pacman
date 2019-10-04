@@ -19,4 +19,8 @@ class Entity {
     parent.appendChild(this.entEl);
     this.stage.entArr.push(this);
   }
+
+  unmount() {
+    this.entEl.parentNode.removeChild(this.entEl);
+  }
 }
