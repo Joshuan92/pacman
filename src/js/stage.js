@@ -17,10 +17,12 @@ class Stage {
   }
 
   withinBorders (x,y) {
-    if (x > this.tilesWidth || x < 0 || y < 0 || y > this.tilesHeight) {
+    if (x >= this.tilesWidth || y >= this.tilesHeight) {
       return false;
-    } else {
-      return true;
     }
+    if (x < 0 || y < 0) {
+      return false;
+    }
+    return true;
   }
 } 

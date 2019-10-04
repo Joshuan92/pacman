@@ -4,7 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const app = document.querySelector('#app');
-  const arena1 = new Stage (5, 5);
+  const arena1 = new Stage (7, 5);
   arena1.mount(app);
 
   const pacman1 = new Pacman(arena1);
