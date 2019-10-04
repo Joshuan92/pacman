@@ -17,6 +17,6 @@ class Entity {
   mount(parent) {
     this.render();
     parent.appendChild(this.entEl);
-    this.stage.entArr.push(this.entEl);
+    this.stage.entArr.push(this);
   }
 }

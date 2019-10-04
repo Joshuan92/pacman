@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const bomb1 = new Entity('bomb', 3, 4, arena1);
   bomb1.mount(arena1.arena);
-
-  console.log(arena1.entArr);
+  console.log(arena1.colisionDetection(3, 4));
 
 
   // const pacboy = document.querySelector('.pacboy-active-light');

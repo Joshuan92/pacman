@@ -5,8 +5,13 @@ class Stage {
     this.entArr = [];
   }
 
-  colisionDetection(x, y) {
-    
+  colisionDetection(xPos, yPos) {
+    for (const entity of this.entArr) {
+      if (entity.x === xPos && entity.y === yPos) {
+        return entity;
+      }
+    }
+    return null;
   }
 
   render () {
