@@ -34,8 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   // open and close the pacman
-  document.addEventListener('keydown', (event) =>{
-    if(event.key === 'ArrowDown'){
+ /*  document.addEventListener('keydown', (event) =>{
+    // if(event.key === 'ArrowDown'){
       
       if (pacboy.style.backgroundPositionX !== '100%'){
         
@@ -47,8 +47,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
 
       }
-    }
+    } */
     
-  });
+ /*  }); */
   
 });
