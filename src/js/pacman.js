@@ -1,8 +1,9 @@
 class Pacman{
-    constructor(){
-        this.xpos = 0;
-        this.ypos = 0;
+    constructor(stage){
         this.mouth = 'open';
+        this.tilePositionX = 0;
+        this.tilePositionY = 0;
+        this.stage = stage;
     }
 
 
@@ -24,8 +25,7 @@ class Pacman{
         
             this.pacboy.style.backgroundPositionX = '100%';
             
-          }
-          else{
+          } else {
             this.pacboy.style.backgroundPositionX = '0%';
           }
     } 
@@ -39,33 +39,44 @@ class Pacman{
         this.ypos = pacboy.offsetTop;
 
         document.addEventListener('keydown', (event) =>{
+            console.log(this.tilePositionX);
+            console.log(this.tilePositionY);
+            console.log(this.stage.tilesWidth);
+            console.log(this.stage.tilesHeight);
+            
+            if (this.stage.withinBorders(this.tilePositionX + 1, this.tilePositionY + 1)){
+                console.log("within borders") 
+            } else {
+                console.log("not within borders");
+            }
             
             if(event.key === 'ArrowRight'){
-            pacboy.style.left = `${this.xpos + 85}px`;
-            this.xpos += 85;
-            pacboy.style.backgroundPositionY = '0%';
-            this.alternateMouth();
+            
+                this.tilePositionX += 1;
+                pacboy.style.left = `${this.tilePositionX * 85}px`;
+                pacboy.style.backgroundPositionY = '0%';
+                this.alternateMouth();
             }
             
             if(event.key === 'ArrowLeft'){
-            pacboy.style.left = `${this.xpos - 85}px`;
-            this.xpos -= 85;
-            pacboy.style.backgroundPositionY = '33.333%';
-            this.alternateMouth();
+                this.tilePositionX -= 1;
+                pacboy.style.left = `${this.tilePositionX  * 85}px`;
+                pacboy.style.backgroundPositionY = '33.333%';
+                this.alternateMouth();
             }
 
             if(event.key === 'ArrowUp'){
-            pacboy.style.top = `${this.ypos - 85}px`;
-            this.ypos -= 85;
-            pacboy.style.backgroundPositionY = '100%';
-            this.alternateMouth();
+                this.tilePositionY -= 1;
+                pacboy.style.top = `${this.tilePositionY * 85}px`;
+                pacboy.style.backgroundPositionY = '100%';
+                this.alternateMouth();
             }
 
             if(event.key === 'ArrowDown'){
-            pacboy.style.top = `${this.ypos + 85}px`;
-            this.ypos += 85;
-            pacboy.style.backgroundPositionY = '66.6666%';
-            this.alternateMouth();
+                this.tilePositionY += 1;
+                pacboy.style.top = `${this.tilePositionY * 85}px`;
+                pacboy.style.backgroundPositionY = '66.6666%';
+                this.alternateMouth();
             }
 
 

@@ -4,8 +4,12 @@
 document.addEventListener('DOMContentLoaded', () => {
 
   const app = document.querySelector('#app');
-  const pacman1 = new Pacman();
-  pacman1.mount(app);
+  const arena1 = new Stage (5, 5);
+  arena1.mount(app);
+
+  const pacman1 = new Pacman(arena1);
+  pacman1.mount(arena1.arena);
+
   // const pacboy = document.querySelector('.pacboy-active-light');
 
   // //saves the x-position of pacman on the screen
