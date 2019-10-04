@@ -2,6 +2,11 @@ class Stage {
   constructor (tilesWidth, tilesHeight) {
     this.tilesWidth = tilesWidth;
     this.tilesHeight = tilesHeight;
+    this.entArr = [];
+  }
+
+  colisionDetection(x, y) {
+    
   }
 
   render () {

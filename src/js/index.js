@@ -10,6 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const pacman1 = new Pacman(arena1);
   pacman1.mount(arena1.arena);
 
+  const wall1 = new Entity('apple', 6, 4, arena1);
+  wall1.mount(arena1.arena);
+  
+
+  const bomb1 = new Entity('bomb', 3, 4, arena1);
+  bomb1.mount(arena1.arena);
+
+  console.log(arena1.entArr);
+
+
   // const pacboy = document.querySelector('.pacboy-active-light');
 
   // //saves the x-position of pacman on the screen
